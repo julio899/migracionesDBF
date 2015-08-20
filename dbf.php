@@ -1,25 +1,4 @@
 <?php
-// Ruta al archivo dbase
-/*
-$ruta_db = "./DBFWEB/01INV.DBF";
-
-$obj=new DBF($ruta_db);
-$obj->crear_tabla();
-$obj->get_recorrido();
-*/
-
-// Ruta al archivo dbase
-$directorio_de_archivos = "./DBFWEB/";
-$archivos_dbf=array('01INV.DBF','01_INV.DBF','02_CHE.DBF','02_CPC.DBF');
-
-	foreach ($archivos_dbf as $key => $archivo) {
-		$ruta=$directorio_de_archivos.$archivo;
-
-			$obj=new DBF($ruta);
-			$obj->crear_tabla();
-			$obj->get_recorrido();
-	}
-
 
 
 class DBF 
@@ -128,6 +107,9 @@ class DBF
 		
 	}
 
-} # Fin de Clase
+	function tabla_y_datos(){
+		$this->crear_tabla();
+		$this->get_recorrido();
+	}
 
-?>
+} # Fin de Clase

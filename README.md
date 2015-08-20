@@ -1,4 +1,6 @@
 # migracionesDBF
+la idea principal de esta libreria es leer los archivos con extension .dbf y migrar los datos a cualquier otra tecnologia, en este caso estaremos migrande archivos .dbf a MySQL.
+
 ## Reuerimientos y dependencias
 Importante terner encuenta:
 * servidor Apache funcionando con php5 o superior
