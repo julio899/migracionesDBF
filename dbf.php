@@ -47,11 +47,11 @@ class DBF
 		# separamos el nombre del archivo de la extension del mismo
 		$temp2=explode('.', $this->nombre_tabla);
 		# escojo el nombre del archivo que esta en la primera posicion 0
-		$this->nombre_tabla=$temp2[0];
+		$this->nombre_tabla=strtolower($temp2[0]);
 	}// fin de set_nombre_tabla
 
 	function crear_tabla(){
-		$this->tabla_sql="DROP TABLE IF EXISTS `".$this->nombre_tabla."`;\nCREATE TABLE IF NOT EXISTS `".$this->nombre_tabla."` (\n";
+		$this->tabla_sql="\n\nDROP TABLE IF EXISTS `".$this->nombre_tabla."`;\nCREATE TABLE IF NOT EXISTS `".$this->nombre_tabla."` (\n";
 		foreach ($this->campos as $key => $value) {
 			$this->tabla_sql.="\t`".$value['name']."` ";
 			if($value['type']==='number'){ $this->tabla_sql.="double "; }else{$this->tabla_sql.="char(".$value['long'].") ";}
@@ -60,14 +60,12 @@ class DBF
 
 		}
 		$this->tabla_sql.="\n) DEFAULT CHARSET=utf8;";
-		echo "<pre>".$this->tabla_sql."</pre>";
+		return $this->tabla_sql;
 	}
 
 	function get_recorrido(){
-			echo "<pre>";
 			$this->get_encabezado_llenado();
-		  	echo $this->tabla_sql_data;
-			echo "</pre>";
+		  	return $this->tabla_sql_data;
 	}
 
 	function get_encabezado_llenado(){
@@ -113,8 +111,7 @@ class DBF
 	}
 
 	function tabla_y_datos(){
-		$this->crear_tabla();
-		$this->get_recorrido();
+		return $this->crear_tabla().$this->get_recorrido();
 	}
 
 } # Fin de Clase
