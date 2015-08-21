@@ -40,7 +40,8 @@ $archivos_dbf=array('01INV.DBF','01_INV.DBF','02_CHE.DBF','02_CPC.DBF','01_CPC.D
 function blanquear_archivo($ruta){
 
 		$file=fopen($ruta,"w") or die("Problemas no se pudo crear el archivo $ruta");
-		  $str="\n# Libreria Creada por Julio Vinachi\n# =================================\n\n";
+		  $str="\n# ==============================================\n# Libreria Creada por Julio Vinachi\n# Email: Julio899@gmail.com\n# Repositorio Oficial de la libreria\n# ( git@github.com:julio899/migracionesDBF.git )\n# ==============================================\n\n";
+		  $str.="\n# Fecha de Creacion: ".date('d-m-Y g:i:s a')."\n";
 		  fputs($file,$str);
 		  fclose($file);
 

@@ -1,7 +1,13 @@
 
+# ==============================================
 # Libreria Creada por Julio Vinachi
-# =================================
+# Email: Julio899@gmail.com
+# Repositorio Oficial de la libreria
+# ( git@github.com:julio899/migracionesDBF.git )
+# ==============================================
 
+
+# Fecha de Creacion: 21-08-2015 3:02:39 pm
 
 
 DROP TABLE IF EXISTS `01inv`;

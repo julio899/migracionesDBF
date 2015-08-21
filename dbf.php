@@ -3,7 +3,7 @@
 * Realizado por:
 	* Autor: Julio Vinachi
 	* Email: julio899@gmail.com
-	Repositorio Oficail de la libreria 
+	Repositorio Oficial de la libreria 
 	( git@github.com:julio899/migracionesDBF.git )
 ***********************************************/
 class DBF 
