@@ -53,7 +53,7 @@ class DBF
 	function crear_tabla(){
 		$this->tabla_sql="\n\nDROP TABLE IF EXISTS `".$this->nombre_tabla."`;\nCREATE TABLE IF NOT EXISTS `".$this->nombre_tabla."` (\n";
 		foreach ($this->campos as $key => $value) {
-			$this->tabla_sql.="\t`".$value['name']."` ";
+			$this->tabla_sql.="\t`".strtolower($value['name'])."` ";
 			if($value['type']==='number'){ $this->tabla_sql.="double "; }else{$this->tabla_sql.="char(".$value['long'].") ";}
 			$this->tabla_sql.="DEFAULT NULL";
 			if(	($key+1) < count($this->campos)	){ $this->tabla_sql.=",\n"; }
@@ -78,7 +78,13 @@ class DBF
 		      $control=0; $this->tabla_sql_data.="(";
 		      	foreach ($fila as $key => $value) {
 		      		if($control < (count($fila)-1) ){
-		      			if($this->campos[$control]['type']==='number'){ $this->tabla_sql_data.=$fila[$key];}else{ $this->tabla_sql_data.="'".$fila[$key]."'"; }
+						
+						$caracteres = array("\\", "'", "\"");
+						$cadena_limpia = str_replace($caracteres, "", $fila[$key]);	      			
+		      			if($this->campos[$control]['type']==='number'){ 
+		      				$this->tabla_sql_data.=$cadena_limpia;}else{ $this->tabla_sql_data.="'".$cadena_limpia."'"; }
+		      			
+		      			//la Coma al final
 		      			if($control != (count($fila)-2) ){$this->tabla_sql_data.=",";}else{$this->tabla_sql_data.="),";}
 		      		}
 		      		
