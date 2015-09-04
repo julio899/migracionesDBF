@@ -12,8 +12,8 @@ Error: cannot download "pecl/dbase"
 Download failed
 install failed
 aparecere un error en el comando anterior en que no puede descomprimir
-se soluciona con sudo pecl install -Z dbase
-* crear el archivo /etc/php5/apache2/conf.d/dbase.ini
+se soluciona con `sudo pecl install -Z dbase`
+* crear el archivo `/etc/php5/apache2/conf.d/dbase.ini`
 	e incluir `extension=dbase.so`
-* en sudo nano /etc/php5/apache2/php.ini agregar extension=dbase.so
+* en sudo nano `/etc/php5/apache2/php.ini` agregar extension=dbase.so
 * reiniciar el servidor `sudo service apache2 restart`
