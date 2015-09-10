@@ -2,10 +2,12 @@
 	require_once('dbf.php');
 
 // Ruta al archivo dbase
+/*
+$directorio_de_archivos = "/mnt/SERVIDOR/SISTEMAS/GENERAL/";
+$dir_empresas=array('Compa','Comercio','Deimport');
+*/
 $directorio_de_archivos = "./DBFWEB/";
-
 $dir_empresas=array('compacto','dideco','deimport');
-
 
 	foreach ($dir_empresas as $key => $value) {
 		procesar($value,$directorio_de_archivos);	
@@ -16,12 +18,17 @@ $dir_empresas=array('compacto','dideco','deimport');
 
 
 function procesar($dir_compa, $directorio_de_archivos){
-
-$archivos_dbf=array('01INV.DBF','01_INV.DBF','02_CHE.DBF','02_CPC.DBF','01_CPC.DBF','01_CPP.DBF');
+/*
+$archivos_dbf=array('01inv.DBF','01-inv.DBF','02-CHE.DBF','02-CPC.DBF','01-cpc.DBF','01-cpp.DBF');
+*/
+$archivos_dbf=array('01INV.DBF','01_INV.DBF','02_CHE.DBF','02_CPC.DBF','01_CPC.DBF','01_CPP.DBF','CIUDADES.DBF','ESTADOS.DBF');
 
 		$ruta=$directorio_de_archivos.$dir_compa."/inventario.sql";
 		blanquear_archivo($ruta);
 	foreach ($archivos_dbf as $key => $archivo) {
+
+		//$ruta=$directorio_de_archivos.$dir_compa."/".$archivo.".sql";
+		//blanquear_archivo($ruta);
 		$rutaOK=$directorio_de_archivos.$dir_compa."/".$archivo;
 
 			$obj=new DBF($rutaOK);
