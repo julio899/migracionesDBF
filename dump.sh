@@ -1,0 +1,2 @@
+#!/bin/bash
+mysqldump -u root -pvinachi89 grupoemp_sql_dideco < DBFWEB/dideco/inventario.sql && echo "fin de DIDECO porfavor Espere." && mysqldump -u root -pvinachi89 grupoemp_sql_deimport < DBFWEB/deimport/inventario.sql && echo "fin de DEIMPORT porfavor Espere.." && mysqldump -u root -pvinachi89 grupoemp_sql_compacto < DBFWEB/compacto/inventario.sql && echo "fin de COMPACTO porfavor Espere..." && echo "LISTO PROCESO TERMIDADO"
